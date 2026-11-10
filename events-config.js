@@ -1,0 +1,1 @@
+window.OCU_EVENTS_CONFIG = {"anonKey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54Y2NhYmx6ZGdic21lbGRmb3FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyMjA3MzYsImV4cCI6MjA5MDc5NjczNn0.hHzzwc6gQcXJCQ4gdv8GM2fqvbuatFWkOMvRwvM1jrg","url":"https://nxccablzdgbsmeldfoqi.supabase.co"};
