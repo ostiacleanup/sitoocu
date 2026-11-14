@@ -238,8 +238,8 @@
         </ul>
       </div>
       <form class="form reveal d1" id="contact-form" novalidate>
-        <div class="field"><label for="f-name">Nome</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Il tuo nome" required></div>
-        <div class="field"><label for="f-email">Indirizzo e-mail</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="nome@esempio.it" required></div>
+        <div class="field"><label for="f-name">Nome</label><input id="f-name" name="name" maxlength="120" type="text" autocomplete="name" placeholder="Il tuo nome" required></div>
+        <div class="field"><label for="f-email">Indirizzo e-mail</label><input id="f-email" name="email" maxlength="254" type="email" autocomplete="email" placeholder="nome@esempio.it" required></div>
         <div class="field">
           <label for="f-topic">Oggetto</label>
           <select id="f-topic" name="topic" required>
@@ -250,10 +250,9 @@
             <option value="Info o altro">Info o altro</option>
           </select>
         </div>
-        <div class="field"><label for="f-msg">Messaggio</label><textarea id="f-msg" name="message" placeholder="Raccontaci come vuoi dare una mano…" required></textarea></div>
-        <div class="field"><label for="f-captcha">Controllo di sicurezza</label>
-          <div class="captcha"><span class="q" id="captcha-q">5 + 10 =</span><input id="f-captcha" name="captcha" type="number" inputmode="numeric" placeholder="?" required></div>
-        </div>
+        <div class="field"><label for="f-msg">Messaggio</label><textarea id="f-msg" name="message" maxlength="5000" placeholder="Raccontaci come vuoi dare una mano…" required></textarea></div>
+        <div class="field"><span>Controllo di sicurezza</span><div class="contact-turnstile"></div></div>
+        <div style="display:none" aria-hidden="true"><label>Lascia vuoto<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
         <button class="btn btn--accent btn--sm" type="submit">Invia <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         <p class="form__msg" id="form-msg" role="status" aria-live="polite"></p>
       </form>
@@ -317,6 +316,8 @@
     <button data-look="sabbia">Sabbia</button>
   </div>
 </div>
+<script src="contact-config.js"></script>
+<script src="contact.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -189,47 +189,9 @@
     setTimeout(() => nums.forEach(run), 1900);
   }
 
-  /* ---------- Contact form + captcha ---------- */
+  /* ---------- Contact form: Apps Script + Turnstile ---------- */
   function initForm() {
-    const form = $("#contact-form");
-    if (!form) return;
-    const a = Math.floor(Math.random() * 9) + 1;
-    const b = Math.floor(Math.random() * 9) + 1;
-    const qEl = $("#captcha-q", form);
-    if (qEl) qEl.textContent = `${a} + ${b} =`;
-    const msg = $("#form-msg", form);
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = $("#f-name", form).value.trim();
-      const email = $("#f-email", form).value.trim();
-      const topic = $("#f-topic", form).value;
-      const text = $("#f-msg", form).value.trim();
-      const captcha = parseInt($("#f-captcha", form).value, 10);
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-      if (!name || !emailOk || !topic || !text) {
-        msg.className = "form__msg err";
-        msg.textContent = "Compila tutti i campi con un indirizzo e-mail valido.";
-        return;
-      }
-      if (captcha !== a + b) {
-        msg.className = "form__msg err";
-        msg.textContent = "Il risultato del controllo di sicurezza non è corretto. Riprova.";
-        return;
-      }
-      msg.className = "form__msg ok";
-      msg.textContent = `Grazie ${name}! Il tuo messaggio è stato inviato. Ti risponderemo presto. 🌊`;
-      form.reset();
-      // rigenera captcha
-      const a2 = Math.floor(Math.random() * 9) + 1;
-      const b2 = Math.floor(Math.random() * 9) + 1;
-      if (qEl) qEl.textContent = `${a2} + ${b2} =`;
-      form._sum = a2 + b2;
-    });
-    form._sum = a + b;
-    // mantieni la somma sincronizzata se l'utente rilancia
-    Object.defineProperty(form, "captchaSum", { get: () => form._sum });
+    if (window.OCUContact) window.OCUContact.init();
   }
 
   /* ---------- Look switcher (ANTEPRIMA) ----------
